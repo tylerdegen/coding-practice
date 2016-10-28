@@ -1,0 +1,98 @@
+# you can write to stdout for debugging purposes, e.g.
+
+import math
+
+print "this is a debug message"
+
+
+
+def solution(X):
+    
+	# write your code in Python 2.7
+
+    
+    #find length of integer
+
+    	len = math.floor(math.log(X, 10)) + 1
+
+    	print len
+
+    
+    #list of digits
+	
+digits = []
+    	i = 0
+
+	while i < len:
+
+        	y = ( X % 10**(i+1) - X % 10**(i) ) / 10**i
+
+	        digits.append(y)
+	
+        print y
+
+	        i += 1
+		print digits
+
+	digits.reverse()
+    
+	print digits
+    
+	#initialize list of results
+    
+	results = []
+    
+    
+	#going to be len-1 results
+    
+	i = 0
+    
+	while i < len:
+
+        	while z < len:
+
+			#hydrate the results by plumping them UP
+            
+			#might have been worth not reversing -- then their index would align with their "place"
+            
+			#ex a[4] would be the 10^4 place
+            
+			results[i] += digits[z] * 10** (len - z)
+            
+			#need an if condition that if z = i, make that digit the combination
+        
+    
+        
+    
+    
+	pass
+
+
+***
+
+# you can write to stdout for debugging purposes, e.g.
+# print "this is a debug message"
+
+def solution(S):
+    # write your code in Python 2.7
+    
+    #the number of spaces of the furthest child would be the number of slashes -- can we use this?
+    
+    #doesn't actually NEED the longest path -- just needs longest length
+    dir_lens = []
+    index = 0
+    for line in S
+        if line.count(' ') == 0:
+            dir_lens[index] += findLength
+            
+    
+    
+    pass
+
+def findLength(x, indent):
+    #create list of indentation level lengths, and in that list, let each entry correspond to the
+    #max length of the entry
+    
+    for line in x:
+        
+        
