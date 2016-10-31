@@ -2,42 +2,64 @@ class TreeNode:
 	def __init__(self, data):
 		self.data = data
 		self.children = []
+		
+	def shade(self):
+		for child in children:
+			print child.data
 
 x = TreeNode("woff")
 print(x.data)
 
-def solution (X):
+'''def solution (X):
 	indent = 0
-	index_of_root = -1
+	index_of_root = 0
+	index = 0
 	lines = X.split(str="\n")
 	roots = []
 	for line in lines:
-		if line[indent] != " ":
-			indent += 1
+		#if line[indent] == " ":
+		#	indent += 1
+		# if a root dir
 		if indent == 0
-			roots[index] = TreeNode(len(line))
+			roots[index_of_root] = TreeNode(len(line))
 			index_of_root += 1
 		else:
 			if line[indent] != " ":
 				#
-				
 			else:
-				#		
-
+				#
+		index += 1
+'''
 
 def createTree(parent, lines, index, indent):
-	while index < lines.size()
-		if !dir
+	while index < len(lines):
+		line = lines[index]
+		#dir = "." not in line
+		#if !dir:
+		if "." not in line:
 			#check to make sure in same directory
-			if samedirectory
-				parent.children.append(lines[index])
-				index++
-			else
+			samedirectory = indent == line.count(' ')
+			if samedirectory:
+				parent.children.append(line)
+				index += 1
+			else:
+				#done adding children to tree
 				return index
-		else dir
+		#this line IS a directory
+		else:
 			x = TreeNode(dirname)
+			print("WOO RECURSION")
 			index = createTree(x, lines, index, indent + 1)
 			parent.children.append(x)
+			
+with open("2input.txt") as f:
+	lines = f.readlines()
+
+print lines
+rootNode = TreeNode("root")
+createTree(rootNode, lines, 0, 0)
+for child in rootNode.children:
+	print child
 			
 '''
 
