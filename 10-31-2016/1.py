@@ -1,4 +1,4 @@
-def process(prices):
+def process(prices, profit):
 	index = 0
 
 	if len(prices) <= 1:
@@ -7,16 +7,20 @@ def process(prices):
 	#assume first element is lowest
 	low = prices[0]
 	high = prices[1]
-	profit = high - low
+	test_profit = high - low
 	for price in prices:
 		if price > high:
 			high = price
-			profit = high - low
-			print ("profit gathered from " + str(high) + ", " + str(low))
+			temp_profit = high - low
+			#is this test necessary
+			#YES because now profit is passed in
+			if temp_profit > profit:
+				profit = temp_profit
+				print ("profit gathered from " + str(high) + ", " + str(low))
 		if price < low:
-			temp = process( prices[index: len(prices) - 1] )
-			if temp > profit:
-				profit = temp
+			temp_profit = process( prices[index: len(prices) - 1], profit )
+			if temp_profit > profit:
+				profit = temp_profit
 				low = price
 		index +=1
 	return profit
@@ -50,4 +54,7 @@ def get_max_profit(stock_prices_yesterday):
 
 stock_prices_yesterday = [10, 7, 5, 8, 11, 9]
 #print get_max_profit(stock_prices_yesterday)
-print process(stock_prices_yesterday)
+prices = [10, 9, 8, 7, 6]
+
+#print process(stock_prices_yesterday, 0)
+print("Testing negative prices", process(prices, -1))
