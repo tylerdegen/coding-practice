@@ -24,6 +24,39 @@ def process(prices, profit):
 				low = price
 		index +=1
 	return profit
+	
+
+	#handle decreasing price
+	def process2(prices, profit):
+	index = 1
+
+	if len(prices) <= 1:
+		return 0
+
+	#assume first element is lowest
+	bought = prices[0]
+	sold = prices[1]
+	profit = bought - sold
+	
+	while index < len(prices):
+		test_profit = bought 
+	
+	for price in prices:
+		if price > high:
+			high = price
+			temp_profit = high - low
+			#is this test necessary
+			#YES because now profit is passed in
+			if temp_profit > profit:
+				profit = temp_profit
+				print ("profit gathered from " + str(high) + ", " + str(low))
+		if price < low:
+			temp_profit = process( prices[index: len(prices) - 1], profit )
+			if temp_profit > profit:
+				profit = temp_profit
+				low = price
+		index +=1
+	return profit
 			
 def get_max_profit(stock_prices_yesterday):
 	profit = 0
